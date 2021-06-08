@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Title = styled.h3`
   color: #8884d8;
+  text-align: center;
 `;
 
 export const ChartWrapper = styled.section`
@@ -9,7 +10,6 @@ export const ChartWrapper = styled.section`
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  width: 60%;
   margin-bottom: 40px;
 `;
 
@@ -21,6 +21,7 @@ export const ToolsWrapper = styled.div`
 
 export const Paragraph = styled.p`
   color: #adbac7;
+  width: 60%;
 `;
 
 export const ColorWrapper = styled.div`

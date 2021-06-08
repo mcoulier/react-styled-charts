@@ -18,19 +18,15 @@ import {
   ColorWrapper,
 } from "./Styles";
 import data from "../../../assets/data.json";
+import diceIcon from "../../../assets/dice.png";
 
 export const TwoLineChart = () => {
-  const [xDataKey, setXDataKey] = useState("name");
   const [xColor, setXColor] = useState("#ff9800");
   const [yColor, setYColor] = useState("#2DDBFB");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [currColor, setCurrColor] = useState("");
   const colorEl = useRef(null);
   const [randomData, setRandomData] = useState(data);
-
-  const handleXAxis = (event) => {
-    setXDataKey(event.target.value);
-  };
 
   const randomizer = () => {
     const data = [];
@@ -64,8 +60,7 @@ export const TwoLineChart = () => {
       <Title>Line Chart Example</Title>
       <LineChart width={550} height={350} data={randomData}>
         <CartesianGrid strokeDasharray="4 4" />
-        <Line />
-        <XAxis dataKey={xDataKey} />
+        <XAxis dataKey="name" />
         <YAxis />
         <Tooltip />
         <Legend verticalAlign="top" height={30} />
@@ -78,14 +73,14 @@ export const TwoLineChart = () => {
           style={{ background: `${xColor}` }}
           onClick={() => handleShowPicker("x")}
         >
-          X Axis Color
+          Line 1 Color
         </Button>
         <Button
           ref={colorEl}
           style={{ background: `${yColor}` }}
           onClick={() => handleShowPicker("y")}
         >
-          Y Axis Color
+          Line 2 Color
         </Button>
         {showColorPicker && (
           <ColorWrapper>
@@ -95,8 +90,10 @@ export const TwoLineChart = () => {
             />
           </ColorWrapper>
         )}
-        <Button onClick={randomizer}>Randomize data</Button>
-{/*         <select onChange={handleXAxis}>
+        <Button onClick={randomizer}>
+          <img height="30px" src={diceIcon} alt="dice icon" />
+        </Button>
+        {/*         <select onChange={handleXAxis}>
           <option value="name">Name</option>
           <option value="amt">Amt</option>
         </select> */}

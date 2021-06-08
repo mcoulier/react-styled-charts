@@ -5,9 +5,7 @@ export const ContentWrapper = styled.div`
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
-  background: #282828;
-  margin-top: 40px;
-  border: 1px solid;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
 `;

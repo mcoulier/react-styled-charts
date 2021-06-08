@@ -7,8 +7,9 @@ import {
   CartesianGrid,
   Legend,
   Tooltip,
+  ResponsiveContainer,
 } from "recharts";
-import { Paragraph, ChartWrapper } from "../LineChart/Styles";
+import { Paragraph, ChartWrapper, Title } from "../LineChart/Styles";
 
 const data = [
   {
@@ -58,6 +59,8 @@ const data = [
 export const RadBarChart = () => {
   return (
     <ChartWrapper>
+      <Title>Bar Chart Example</Title>
+
       <BarChart width={500} height={300} data={data} barSize={10}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
