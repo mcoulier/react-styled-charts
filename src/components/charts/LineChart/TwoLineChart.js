@@ -58,19 +58,29 @@ const data = [
 
 export const TwoLineChart = () => {
   const [xDataKey, setXDataKey] = useState("name");
-  const [xColor, setXColor] = useState("");
-  const [yColor, yetYColor] = useState("");
+  const [xColor, setXColor] = useState("#ff9800");
+  const [yColor, setYColor] = useState("#2DDBFB");
   const [showColorPicker, setShowColorPicker] = useState(false);
+  const [currColor, setCurrColor] = useState("");
 
   const handleXAxis = (event) => {
     setXDataKey(event.target.value);
   };
 
-  const handleColor = () => {
-    setShowColorPicker((prevState) => !prevState);
+  const handleShowPicker = (value) => {
+    setCurrColor(value);
+    setShowColorPicker(true);
   };
 
-  //console.log(showColorPicker);
+  const handleColor = (color) => {
+    if (currColor === "x") {
+      setXColor(color.hex);
+      setShowColorPicker(false);
+    } else {
+      setYColor(color.hex);
+      setShowColorPicker(false);
+    }
+  };
 
   return (
     <>
@@ -81,14 +91,17 @@ export const TwoLineChart = () => {
         <YAxis />
         <Tooltip />
         <Legend verticalAlign="top" height={30} />
-        <Line type="monotone" dataKey="pv" stroke="#FAD207" />
-        <Line type="monotone" dataKey="uv" stroke="#2DDBFB" />
+        <Line type="monotone" dataKey="pv" stroke={xColor} />
+        <Line type="monotone" dataKey="uv" stroke={yColor} />
       </LineChart>
-      <Button onClick={handleColor} value="xAxis">
-        X Axis Color
-      </Button>
-      <Button value="yAxis">Y Axis Color</Button>
-      {showColorPicker && <CirclePicker />}
+      <Button onClick={() => handleShowPicker("x")}>X Axis Color</Button>
+      <Button onClick={() => handleShowPicker("y")}>Y Axis Color</Button>
+      {showColorPicker && (
+        <CirclePicker
+          color={currColor === "x" ? xColor : yColor}
+          onChangeComplete={handleColor}
+        />
+      )}
       <select onChange={handleXAxis}>
         <option value="name">Name</option>
         <option value="amt">Amt</option>
