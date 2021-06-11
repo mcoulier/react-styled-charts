@@ -6,6 +6,6 @@ Small project where I aim to learn about data visualization in React. Project wi
 
 ## Goals
 
-- [ ] Learn about chart libraries
-- [ ] Learn styled components
-- [ ] Train css layouts
+- Learn about chart libraries
+- Learn styled components
+- Train css layouts

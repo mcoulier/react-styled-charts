@@ -1,6 +1,5 @@
 import React from "react";
 import { Header, Title, TopIcon } from "./Styles";
-import { Button } from "../../../styles/Button";
 import chartIcon from "../../../assets/chartIcon.png";
 
 export const HeaderNav = () => {

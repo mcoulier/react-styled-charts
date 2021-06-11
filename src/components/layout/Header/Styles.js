@@ -3,10 +3,8 @@ import styled, { keyframes } from "styled-components";
 export const Header = styled.header`
   background: #240090;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   padding-left: 10px;
-  padding-right: 10px;
   box-shadow: 0px 15px 10px -15px #111;
 `;
 

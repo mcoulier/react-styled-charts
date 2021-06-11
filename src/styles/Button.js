@@ -10,7 +10,7 @@ export const Button = styled.button`
   margin-right: 5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   text-transform: capitalize;
-  
+
   &:hover {
     opacity: 0.9;
   }

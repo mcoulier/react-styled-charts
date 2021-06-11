@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
-export const Title = styled.h3`
+export const Title = styled.h2`
   color: #8884d8;
   text-align: center;
+  letter-spacing: 0.2rem;
+  border-bottom: 1px solid;
 `;
 
 export const ChartWrapper = styled.section`
@@ -11,6 +13,11 @@ export const ChartWrapper = styled.section`
   justify-content: center;
   align-items: center;
   margin-bottom: 40px;
+  width: 100vw;
+
+  @media only screen and (min-width: 1440px) {
+    width: 60vw;
+  }
 `;
 
 export const ToolsWrapper = styled.div`

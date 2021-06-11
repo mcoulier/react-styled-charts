@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import {
   LineChart,
   Line,
@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 import { CirclePicker } from "react-color";
 import { Button } from "../../../styles/Button";
@@ -25,7 +26,6 @@ export const TwoLineChart = () => {
   const [yColor, setYColor] = useState("#2DDBFB");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [currColor, setCurrColor] = useState("");
-  const colorEl = useRef(null);
   const [randomData, setRandomData] = useState(data);
 
   const randomizer = () => {
@@ -58,25 +58,25 @@ export const TwoLineChart = () => {
   return (
     <ChartWrapper>
       <Title>Line Chart Example</Title>
-      <LineChart width={550} height={350} data={randomData}>
-        <CartesianGrid strokeDasharray="4 4" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend verticalAlign="top" height={30} />
-        <Line type="monotone" dataKey="pv" stroke={xColor} />
-        <Line type="monotone" dataKey="uv" stroke={yColor} />
-      </LineChart>
+      <ResponsiveContainer width="70%" height={350}>
+        <LineChart data={randomData}>
+          <CartesianGrid strokeDasharray="4 4" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend verticalAlign="top" height={30} />
+          <Line type="monotone" dataKey="pv" stroke={xColor} />
+          <Line type="monotone" dataKey="uv" stroke={yColor} />
+        </LineChart>
+      </ResponsiveContainer>
       <ToolsWrapper>
         <Button
-          ref={colorEl}
           style={{ background: `${xColor}` }}
           onClick={() => handleShowPicker("x")}
         >
           Line 1 Color
         </Button>
         <Button
-          ref={colorEl}
           style={{ background: `${yColor}` }}
           onClick={() => handleShowPicker("y")}
         >
@@ -93,10 +93,6 @@ export const TwoLineChart = () => {
         <Button onClick={randomizer}>
           <img height="30px" src={diceIcon} alt="dice icon" />
         </Button>
-        {/*         <select onChange={handleXAxis}>
-          <option value="name">Name</option>
-          <option value="amt">Amt</option>
-        </select> */}
       </ToolsWrapper>
       <Paragraph>
         Podcasting operational change management inside of workflows to
