@@ -23,7 +23,7 @@ to {
   transform: rotate(360deg);
 }`;
 
-export const TopIcon = styled.image`
+export const TopIcon = styled.img`
   &:hover {
     animation: ${rotate} 5s linear infinite;
     opacity: 0.9;

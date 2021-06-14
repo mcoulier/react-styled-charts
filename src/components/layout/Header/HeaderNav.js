@@ -5,9 +5,7 @@ import chartIcon from "../../../assets/chartIcon.png";
 export const HeaderNav = () => {
   return (
     <Header>
-      <TopIcon>
-        <img src={chartIcon} alt="chart icon" height="50px" />
-      </TopIcon>
+      <TopIcon src={chartIcon} alt="chart icon" height="50px" />
       <Title>React Charts</Title>
     </Header>
   );
